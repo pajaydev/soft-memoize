@@ -3,7 +3,7 @@
 const DEFAULT_OPTIONS = {
     key: null,
     maxAge: null
-}
+};
 
 /*
  * Memoize the function calls until the maxAge.
@@ -25,19 +25,20 @@ function memoize(func, options) {
         if (cache[key]) return cache[key];
         cache[key] = func.apply(this, arguments);
         return cache[key];
-    }
+    };
     function getKey(args) {
         return JSON.stringify(args);
     }
     function getTime() {
         return new Date().getTime();
     }
-    doMemoize._setMaxAge = function (newAge) {
-        maxAge = newAge;
+    doMemoize.setMaxAge = function (newAge) {
+        endTime = getTime() + newAge;
     };
-
-    doMemoize._clearMaxAge = function () {
+    doMemoize.clearMaxAge = function () {
         endTime = getTime();
     };
     return doMemoize;
 }
+
+module.exports = memoize;

@@ -1,15 +1,27 @@
 {
   "name": "soft-memoize",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./src/index.js",
   "license": "MIT",
   "scripts": {
-    "test": "jest",
+    "lint": "eslint src",
+    "test": "jest && npm run lint",
     "build": "rollup -c"
+  },
+  "keywords": [
+    "memoize",
+    "memoization",
+    "soft-memoize",
+    "time-memoize"
+  ],
+  "author": "Ajaykumar prathap",
+  "eslintConfig": {
+    "extends": "ajay"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^11.1.0",
     "@rollup/plugin-node-resolve": "^7.1.3",
-    "jest": "^26.0.1"
+    "jest": "^26.0.1",
+    "eslint-config-ajay": "^1.0.7"
   }
 }
